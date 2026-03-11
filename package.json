@@ -29,6 +29,7 @@
     "@nestjs/platform-express": "^11.0.1",
     "@node-rs/argon2": "^2.0.2",
     "@t3-oss/env-core": "^0.13.10",
+    "dotenv": "^17.3.1",
     "drizzle-orm": "^0.45.1",
     "jose": "^6.2.1",
     "nestjs-zod": "^5.1.1",
