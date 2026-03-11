@@ -17,6 +17,6 @@ import { AccessTokenPayload } from '../auth.service';
 export const CurrentUser = createParamDecorator(
   (_data: unknown, ctx: ExecutionContext): AccessTokenPayload => {
     const request = ctx.switchToHttp().getRequest<Request>();
-    return request['user'];
+    return request['user'] as AccessTokenPayload;
   },
 );

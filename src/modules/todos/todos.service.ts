@@ -9,19 +9,14 @@ import { todos } from './todos.schema';
 
 @Injectable()
 export class TodosService {
-  constructor(
-    @Inject(DRIZZLE) private db: PostgresJsDatabase<typeof schema>,
-  ) {}
+  constructor(@Inject(DRIZZLE) private db: PostgresJsDatabase<typeof schema>) {}
 
   findAll() {
     return this.db.select().from(todos);
   }
 
   async findOne(id: number) {
-    const [todo] = await this.db
-      .select()
-      .from(todos)
-      .where(eq(todos.id, id));
+    const [todo] = await this.db.select().from(todos).where(eq(todos.id, id));
 
     if (!todo) throw new NotFoundException(`Todo #${id} not found`);
     return todo;
